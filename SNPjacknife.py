@@ -7,12 +7,10 @@ infile = argv[1]
 samplesize = float(argv[2])
 
 with open(infile) as Infile:
-    count = -1
+    count = 0
     for line in Infile:
-        count += 1
-        if count >= 1:
-            break
-        else:
+        while count < 1:
+            count += 1
             Locs = range(1, len(line.split()[1:]) + 1)
             shuffle(Locs)
             jacknife = int(samplesize * len(Locs))
